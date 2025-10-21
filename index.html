@@ -1,0 +1,142 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark</title>
+
+    <!--? Favicon -->
+    <link
+      rel="icon"
+      href="../Raul-Nader--C46--Front-end-sun-tues--10-am-Assignment-JS-3--Bookmark/imgs/bookmark.png"
+    />
+
+    <!--? Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!--? Font-awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--? Main CSS  -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="interface py-5 position-relative">
+      <div
+        class="container d-flex flex-column justify-content-center align-items-center"
+      >
+        <h1 class="py-2 position-relative">Bookmarker</h1>
+
+        <div
+          class="line-dotted w-100 p-3 py-4 mt-5 d-flex flex-column justify-content-center align-items-center gap-4"
+        >
+          <h2>
+            <i class="fa-solid fa-bookmark"></i>Bookmark your favorite sites<i
+              class="fa-solid fa-bookmark"
+            ></i>
+          </h2>
+          <div class="w-100 d-flex flex-column justify-content-center">
+            <label class="pb-2 fw-semibold" for="bookmarkName">
+              <i class="fa-solid fa-book-bookmark pe-2"></i> Site Name</label
+            >
+
+            <input
+              class="form-control"
+              type="text"
+              id="bookmarkName"
+              name="Site Name"
+              placeholder="Bookmark Name"
+              oninput="validateInputs(this)"
+            />
+          </div>
+
+          <div class="w-100 d-flex flex-column justify-content-center">
+            <label class="pb-2 fw-semibold" for="bookmarkUrl">
+              <i class="fa-solid fa-link pe-2"></i> Site URL</label
+            >
+            <input
+              class="form-control"
+              type="url"
+              id="bookmarkUrl"
+              name="Site Name"
+              placeholder="Website URL"
+              oninput="validateInputs(this)"
+            />
+          </div>
+          <button onclick="addData()" class="btn submit-button px-5">
+            Submit
+          </button>
+        </div>
+
+        <table class="table mt-4 text-center bg-light">
+          <thead>
+            <th class="text-capitalize">index</th>
+            <th class="text-capitalize">Website Name</th>
+            <th class="text-capitalize">Visit</th>
+            <th class="text-capitalize">Delete</th>
+          </thead>
+          <tbody id="tableContent"></tbody>
+        </table>
+      </div>
+
+      <!--------- Box modal ------------>
+      <div
+        class="box-modal position-fixed start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none"
+      >
+        <div class="box-container bg-white p-4 rounded-2 shadow-lg">
+          <header
+            class="box-header w-100 d-flex justify-content-between align-items-center mb-4"
+          >
+            <div class="circles d-flex">
+              <span class="rounded-circle me-2"></span>
+              <span class="rounded-circle me-2"></span>
+              <span class="rounded-circle me-2"></span>
+            </div>
+            <button
+              class="btn border-0"
+              id="closeButton"
+              onclick="closeModal()"
+            >
+              <i class="fa-solid fa-xmark fs-3"></i>
+            </button>
+          </header>
+          <p class="m-0 pb-2">
+            Site Name or Url is not valid, Please follow the rules below :
+          </p>
+          <ol class="guide list-unstyled m-0">
+            <li>
+              <i class="fa-regular fa-circle-right"></i> Site name must contain
+              at least 3 characters
+            </li>
+            <li>
+              <i class="fa-regular fa-circle-right"></i> Site URL must be a
+              valid one
+            </li>
+            <li>
+              <i class="fa-regular fa-circle-right"></i> Site Cannot accept the
+              same name and url twice
+            </li>
+          </ol>
+        </div>
+      </div>
+    </main>
+
+    <!--? Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--? Main js  -->
+    <script src="./index.js"></script>
+  </body>
+</html>
